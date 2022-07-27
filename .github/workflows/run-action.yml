@@ -8,7 +8,7 @@ jobs:
     name: A job to say hello
     steps:
       - name: Run the Action
-        uses: fr-platform/github-action-get-repo-info@v0.0.4
+        uses: fr-platform/github-action-get-repo-info@v0.0.5
         id: get-repo
         
       - name: Echo Outputs
