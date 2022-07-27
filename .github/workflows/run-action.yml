@@ -13,3 +13,8 @@ jobs:
       - name: Run the Action
         uses: fr-platform/github-action-get-repo-info@v0.0.3
         id: get-repo
+        
+      - name: Echo Outputs
+        run: |
+          ${{ steps.get-repo.outputs.repository-owner }}
+          ${{ steps.get-repo.outputs.repository-name }}
