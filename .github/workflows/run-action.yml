@@ -11,5 +11,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run the Action
-        uses: actions/github-action-get-repo-info@v1
+        uses: actions/github-action-get-repo-info@v0.0.1
         id: get-repo
