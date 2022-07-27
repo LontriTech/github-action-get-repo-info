@@ -1,0 +1,40 @@
+name: 'Get Repository Information'
+
+description: 'Access repository information even if not available natively on GitHub'
+
+author: 'Fr Platform'
+
+branding:
+  icon: 'printer'  
+  color: 'purple'
+
+inputs:
+  repository:
+    description: "Name of Repository's owner and name"
+    required: false
+    default: '${{ github.repository }}'
+
+outputs:
+  repository-owner:
+    description: "Repository's owner"
+    value: ${{ steps.get-repository-info.outputs.owner }}
+    
+  repository-name:
+    description: "Repository's name"
+    value: ${{ steps.get-repository-info.outputs.name }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get Repository Information
+      id: get-repository-info
+      run: |
+        IN=${{ inputs.repository }}
+        repository=(${IN//// })
+        echo "::set-output name=repository-owner::$(echo ${repository[0]} | tr '[:upper:]' '[:lower:]')"
+        echo "::set-output name=repository-name::$(echo ${repository[1]} | tr '[:upper:]' '[:lower:]')"
+        if [ -z "$repository[0]" && -z "$repository[1]" ] ; then
+          echo "Something is wrong, at least one of the repository information fields is empty."
+          exit 1
+        fi
+      shell: bash
