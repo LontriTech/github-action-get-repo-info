@@ -33,8 +33,4 @@ runs:
         repository=(${IN//// })
         echo "::set-output name=repository-owner::$(echo ${repository[0]} | tr '[:upper:]' '[:lower:]')"
         echo "::set-output name=repository-name::$(echo ${repository[1]} | tr '[:upper:]' '[:lower:]')"
-        if [ -z "$repository[0]" && -z "$repository[1]" ] ; then
-          echo "Something is wrong, at least one of the repository information fields is empty."
-          exit 1
-        fi
       shell: bash
