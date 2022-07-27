@@ -8,7 +8,7 @@ jobs:
     name: Run Action
     steps:
       - name: Run the Action
-        uses: fr-platform/github-action-get-repo-info@v0.0.5
+        uses: fr-platform/github-action-get-repo-info@v0.0.7
         id: get-repo
         
       - name: Echo Outputs
