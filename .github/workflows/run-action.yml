@@ -3,9 +3,9 @@ name: Run Action
 on: [push]
 
 jobs:
-  hello_world_job:
+  run-action:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Run Action
     steps:
       - name: Run the Action
         uses: fr-platform/github-action-get-repo-info@v0.0.5
@@ -13,5 +13,5 @@ jobs:
         
       - name: Echo Outputs
         run: |
-          echo "${{ steps.get-repo.outputs.repository-owner }}"
-          echo "${{ steps.get-repo.outputs.repository-name }}"
+          echo ${{ steps.get-repo.outputs.repository-owner }}
+          echo ${{ steps.get-repo.outputs.repository-name }}
