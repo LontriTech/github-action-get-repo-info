@@ -33,6 +33,8 @@ runs:
         repository=(${IN//// })
         owner=$(echo ${repository[0]} | tr '[:upper:]' '[:lower:]')
         name=$(echo ${repository[1]} | tr '[:upper:]' '[:lower:]')
+        echo $owner
+        echo $name
         echo "::set-output name=repository-owner::$owner"
         echo "::set-output name=repository-name::$name"
       shell: bash
