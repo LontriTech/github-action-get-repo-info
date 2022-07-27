@@ -16,5 +16,5 @@ jobs:
         
       - name: Echo Outputs
         run: |
-          echo ${{ steps.get-repo.outputs.repository-owner }}
-          echo ${{ steps.get-repo.outputs.repository-name }}
+          echo "${{ steps.get-repo.outputs.repository-owner }}"
+          echo "${{ steps.get-repo.outputs.repository-name }}"
