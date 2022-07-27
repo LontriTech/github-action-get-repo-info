@@ -27,7 +27,6 @@ runs:
   using: "composite"
   steps:
     - name: Get Repository Information
-      id: get-repository-info
       run: |
         IN=${{ inputs.repository }}
         repository=(${IN//// })
