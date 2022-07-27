@@ -31,6 +31,8 @@ runs:
       run: |
         IN=${{ inputs.repository }}
         repository=(${IN//// })
-        echo "::set-output name=repository-owner::$(echo ${repository[0]} | tr '[:upper:]' '[:lower:]')"
-        echo "::set-output name=repository-name::$(echo ${repository[1]} | tr '[:upper:]' '[:lower:]')"
+        owner=$(echo ${repository[0]} | tr '[:upper:]' '[:lower:]')
+        name=$(echo ${repository[1]} | tr '[:upper:]' '[:lower:]')
+        echo "::set-output name=repository-owner::$owner"
+        echo "::set-output name=repository-name::$name"
       shell: bash
